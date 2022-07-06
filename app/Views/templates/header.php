@@ -18,7 +18,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="/">Home</a>
                     </li>
@@ -31,7 +31,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Contact</a>
                     </li>
-
+                </ul>
+                <ul class="navbar-nav">
+                    <li><a href="/blog/create" class="btn btn-outline-success">Create Post</a></li>
                 </ul>
             </div>
         </div>
