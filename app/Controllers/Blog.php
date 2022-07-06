@@ -6,9 +6,12 @@ use App\Models\BlogModel;
 
 class Blog extends BaseController
 {
-    function posts($slug)
+    function post($slug)
     {
-        echo view('templates/header');
+        $model = new BlogModel();
+        $data['post'] = $model->getPosts($slug);
+
+        echo view('templates/header', $data);
         echo view('blog/post');
         echo view('templates/footer');
     }
@@ -30,9 +33,12 @@ class Blog extends BaseController
                 [
                     'title' => $this->request->getVar('title'),
                     'body' => $this->request->getVar('body'),
-                    'slug' => url_title($this->request->getVar('title')),
+                    'slug' => url_title($this->request->getVar('title'))
                 ]
             );
+
+            $session = \Config\Services::session();
+            $session->setFlashdata('success', 'New post was created!');
             return redirect()->to('/');
         }
     }
