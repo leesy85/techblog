@@ -23,11 +23,19 @@
     </div>
 </section>
 <section class="blog-section">
-    <?php if ($news) : ?>
-        <?php foreach ($news as $newsItem) : ?>
-            <h3><a href="/blog/<?php echo $newsItem['slug']; ?>"><?php echo $newsItem['title'] ?></a></h3>
-        <?php endforeach; ?>
-    <?php else : ?>
-        <p class="text-center">No posts have been found</p>
-    <?php endif; ?>
+    <div class="container">
+        <?php if ($news) : ?>
+            <span>Total: <?php echo count($news); ?> posts</span>
+            <hr>
+            <ul>
+                <?php foreach ($news as $newsItem) : ?>
+                    <li>
+                        <h3><a href="/blog/<?php echo $newsItem['slug']; ?>"><?php echo $newsItem['title'] ?></a></h3>
+                    </li>
+                <?php endforeach; ?>
+            <?php else : ?>
+                <p class="text-center">No posts have been found</p>
+            <?php endif; ?>
+            </ul>
+    </div>
 </section>
